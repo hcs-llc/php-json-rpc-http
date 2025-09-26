@@ -1,5 +1,7 @@
 # JSON-RPC over HTTP(S) for PHP
 
+**Note:** This is a maintained fork of the original [datto/json-rpc-http](https://github.com/datto/php-json-rpc-http) package, which has been abandoned. This repository will be kept up-to-date with bug fixes and new features.
+
 ## Overview
 
 This package allows you to set up a JSON-RPC client and/or server over HTTP(S),
@@ -13,10 +15,10 @@ You're free to use your own library to handle the requests. Likewise, you're fre
 to route requests to your server endpoint through any system that you prefer!
 (See the "examples" folder for ready-to-use examples.)
 
-This package allows you to communicate with a URL endpoint: If don't need to
+This package allows you to communicate with a URL endpoint: If you don't need to
 send or receive HTTP(S) headers, but just want to abstract away the internal
 JSON-RPC messaging format, then you should use the
-[php-json-rpc](https://github.com/datto/php-json-rpc) package instead.
+[php-json-rpc](https://github.com/hcs-llc/php-json-rpc) package instead.
 
 
 ## Features
@@ -65,10 +67,9 @@ This package is released under an open-source license: [LGPL-3.0](https://www.gn
 
 ## Installation
 
-If you're using [Composer](https://getcomposer.org/), you can include this library
-([datto/json-rpc-http](https://packagist.org/packages/datto/json-rpc-http)) like this:
+If you're using [Composer](https://getcomposer.org/), you can include this library ([hcs-llc/json-rpc-http](https://packagist.org/packages/hcs-llc/json-rpc-http)) like this:
 ```
-composer require "datto/json-rpc-http"
+composer require "hcs-llc/php-json-rpc-http"
 ```
 
 
@@ -86,9 +87,8 @@ with your own code.
 ## Changelog
 
 See what has changed:
-[Changelog](https://github.com/datto/php-json-rpc-http/blob/master/CHANGELOG.md)
+[Changelog](https://github.com/hcs-llc/php-json-rpc-http/blob/master/CHANGELOG.md)
 
-
-## Author
+## Original Author
 
 [Spencer Mortensen](http://spencermortensen.com/contact/)
