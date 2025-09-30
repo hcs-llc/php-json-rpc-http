@@ -2,6 +2,7 @@
 
 /**
  * Copyright (C) 2015 Datto, Inc.
+ * Copyright (C) 2025 Hawkins Computer Services, LLC
  *
  * This file is part of PHP JSON-RPC HTTP.
  *
@@ -18,8 +19,8 @@
  * along with PHP JSON-RPC HTTP. If not, see <http://www.gnu.org/licenses/>.
  *
  * @author Spencer Mortensen <smortensen@datto.com>
+ * @author Hawkins Computer Services, LLC <dev@hawkinscomputerservices.com>
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL-3.0
- * @copyright 2015 Datto, Inc.
  */
 
 namespace Datto\JsonRpc\Http;
@@ -114,7 +115,7 @@ class Client
      *
      * @see http://php.net/manual/en/context.http.php HTTP options
      */
-    public function __construct($uri, array $headers = null, array $options = null)
+    public function __construct(string $uri, ?array $headers = null, ?array $options = null)
     {
         $this->requiredHttpHeaders = array(
             'Accept' => self::$CONTENT_TYPE,
@@ -216,6 +217,10 @@ class Client
      */
     public function send()
     {
+        // Proactively initialize the variable to null. This prevents "Undefined variable"
+        // errors in modern PHP if file_get_contents fails before the variable is populated.
+        $http_response_header = null;
+
         set_error_handler([__CLASS__, 'onError']);
 
         try {
@@ -446,10 +451,13 @@ class Client
         }
     }
 
-    public static function onError($level, $message, $file, $line)
+    /**
+     * @throws ErrorException
+     */
+    public static function onError(int $level, string $message, string $file, int $line): void
     {
         $message = trim($message);
-        $code = null;
+        $code = 0;
 
         throw new ErrorException($message, $code, $level, $file, $line);
     }

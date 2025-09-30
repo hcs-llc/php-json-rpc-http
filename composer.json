@@ -1,25 +1,39 @@
 {
     "name": "hcs-llc/php-json-rpc-http",
     "type": "library",
-    "description": "A maintained fork of the datto/json-rpc-http package. HTTP client and server for JSON-RPC 2.0.",
+    "description": "Maintained fork of the abandoned datto/json-rpc-http package. Provides an HTTP client and server for JSON-RPC 2.0.",
     "keywords": ["php", "json", "rpc", "jsonrpc", "json-rpc", "php-json-rpc", "http", "client", "server"],
     "homepage": "https://www.hawkinscomputerservices.com/",
     "license": "LGPL-3.0-or-later",
     "authors": [
         {
-            "name": "Hawkins Computer Services",
+            "name": "Hawkins Computer Services, LLC",
+            "email": "dev@hawkinscomputerservices.com",
             "homepage": "https://www.hawkinscomputerservices.com/",
             "role": "Maintainer"
+        },
+        {
+            "name": "Spencer Mortensen",
+            "email": "smortensen@datto.com",
+            "homepage": "http://spencermortensen.com",
+            "role": "Original Developer"
         }
     ],
     "require": {
-        "php": ">=7.0.0",
-        "hcs-llc/php-json-rpc": "~6.1"
+        "php": "^7.4 || ^8.0",
+        "hcs-llc/php-json-rpc": "^6.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
     },
     "autoload": {
         "psr-4": {
-            "Datto\\JsonRpc\\Http\\Examples\\": "examples/src",
-            "Datto\\JsonRpc\\Http\\": "src"
+            "Datto\\JsonRpc\\Http\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Datto\\JsonRpc\\Http\\Tests\\": "tests/"
         }
     }
 }
