@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [6.0.0] - 2025-09-30
+### Added
+ - Maintained fork established by Hawkins Computer Services, LLC.
+ - Added a test suite (tests/ClientServerTest.php).
+ - Added strict parameter and return types throughout the library for improved robustness.
+ - Added support for php 8.4
+
+### Changed
+ - BREAKING: Dropped support for PHP versions older than 7.4. The new minimum requirement is ^7.4 || ^8.0.
+ - Updated dependency to use the maintained hcs-llc/php-json-rpc package.
+ - Modernized codebase to use PHP 7.4+ features and resolve deprecation notices.
+
+### Removed
+ - BREAKING: Support for PHP 7.0, 7.1, 7.2, and 7.3.
+
 ## [5.0.6] - 2020-03-03
 ### Changed
  - Removed the exit statements from the "Server" class, so you can control the

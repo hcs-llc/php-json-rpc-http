@@ -21,7 +21,7 @@
     ],
     "require": {
         "php": "^7.4 || ^8.0",
-        "hcs-llc/php-json-rpc": "^6.1"
+        "hcs-llc/php-json-rpc": "^7.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5"

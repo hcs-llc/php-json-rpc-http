@@ -67,7 +67,7 @@ This package is released under an open-source license: [LGPL-3.0](https://www.gn
 
 ## Installation
 
-If you're using [Composer](https://getcomposer.org/), you can include this library ([hcs-llc/json-rpc-http](https://packagist.org/packages/hcs-llc/json-rpc-http)) like this:
+If you're using [Composer](https://getcomposer.org/), you can include this library ([hcs-llc/php-json-rpc-http](https://packagist.org/packages/hcs-llc/php-json-rpc-http)) like this:
 ```
 composer require "hcs-llc/php-json-rpc-http"
 ```

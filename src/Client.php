@@ -215,7 +215,7 @@ class Client
      * @throws HttpException
      * Throws an "HttpException" if the server responded with a failure HTTP status code.
      */
-    public function send()
+    public function send(): void
     {
         // Proactively initialize the variable to null. This prevents "Undefined variable"
         // errors in modern PHP if file_get_contents fails before the variable is populated.
@@ -225,7 +225,15 @@ class Client
 
         try {
             $options = $this->getStreamOptions();
-            stream_context_set_option($this->context, $options);
+
+            // Use a loop with the 3-argument version of stream_context_set_option
+            // for maximum backward compatibility, avoiding all deprecation notices.
+            foreach ($options as $wrapper => $wrapperOptions) {
+                foreach ($wrapperOptions as $optionName => $optionValue) {
+                    stream_context_set_option($this->context, $wrapper, $optionName, $optionValue);
+                }
+            }
+
             $message = file_get_contents($this->uri, false, $this->context);
 
             $this->throwHttpExceptionOnHttpError($http_response_header);
